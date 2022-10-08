@@ -1,6 +1,6 @@
 import React from 'react';
 import { RecoilRoot } from 'recoil';
-import AuthGuard from "./AuthGuard";
+import AuthGuard from "./services/AuthGuard";
 
 const App = () => {
 

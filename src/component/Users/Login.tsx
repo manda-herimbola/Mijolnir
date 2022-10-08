@@ -1,49 +1,26 @@
 import React from 'react';
 import { Box, Button, CardMedia, Grid, TextField } from "@mui/material";
-import logo from '../../assets/logo.png'
-import Users from "../../services/Users";
-import { useNavigate } from "react-router-dom";
-import {useSetRecoilState} from "recoil";
-import useInitAuthState from "../../state/useInitAuthState";
-
-const Container : object =  {
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "column",
-    justifyContent: "center",
-    height: "100vh"
-}
+import logo from '../../assets/logo.png';
+import {useRecoilValue, useSetRecoilState} from "recoil";
+import UseUrlUsers from "../../state/users/useUrlUsers";
+import useValidation from "../Hooks/UseValidation";
+import ErrorValidation from "../../state/users/ErrorValidation";
+import useStyles from "../../styles/Style";
 
 const Login = () => {
 
-    const navigate = useNavigate()
-    const setAuth = useSetRecoilState(useInitAuthState)
-
-    const PostLogin = async ( ev: any ) => {
-        ev.preventDefault()
-
-        const response: any = await Users.PostUsers( ev, 'login' )
-        const { token } = await response.json()
-
-        if ( response.status === 200 ){
-            localStorage.setItem('token', token)
-            setAuth(true)
-            navigate('/')
-        } else console.error('No authorized')
-
-    }
+    const validation: any = useValidation()
+    const setUrlUsers: any = useSetRecoilState(UseUrlUsers)
+    const ErrValidate: Array<boolean> = useRecoilValue( ErrorValidation )
+    const classes: any = useStyles()
 
     return (
-        <Box sx={ Container }>
+        <Box className={ classes.Center }>
             <Grid
                 component="form"
                 maxWidth="400px"
-                onSubmit={ PostLogin }
-                sx={{
-                    '& .MuiTextField-root ,& .MuiButton-root':
-                        { mt: 1, width: '100%', height: 60 },
-                    padding: 2
-                }}
+                onSubmit={ validation }
+                className={ classes.Users }
             >
                 <CardMedia
                     component="img"
@@ -52,6 +29,7 @@ const Login = () => {
                 />
 
                 <TextField
+                    error={ ErrValidate[0] }
                     id="email"
                     name="email"
                     label="Email"
@@ -59,15 +37,21 @@ const Login = () => {
                 />
 
                 <TextField
+                    error={ ErrValidate[1] }
                     id="password"
                     name="password"
                     label="Password"
                     type="password"
                 />
 
-                <Button variant="contained" type="submit">login</Button>
+                <Button variant="contained"
+                        type="submit"
+                        onClick={ () => setUrlUsers('login') }>login</Button>
 
-                <a href="/create-account"><Button variant="text">créer un compte</Button></a>
+                <a href="/create-account">
+                    <Button variant="text">create account</Button>
+                </a>
+
             </Grid>
         </Box>
     )

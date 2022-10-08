@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
-import {useRecoilState} from "recoil";
+import { useEffect } from 'react';
+import { useRecoilState } from "recoil";
 import useInitAuthState from "./useInitAuthState";
 
 const GetAuth = () => {
 
-    const [auth, setAuth] = useRecoilState(useInitAuthState)
+    const [ auth, setAuth ] = useRecoilState(useInitAuthState)
 
     useEffect(() => {
         const token = localStorage.getItem('token')

@@ -1,35 +1,26 @@
 import React from 'react';
-import {Box, Button, CardMedia, Grid, TextField} from "@mui/material";
-import Users from "../../services/Users";
+import { Box, Button, CardMedia, Grid, TextField } from "@mui/material";
 import logo from "../../assets/logo.png";
-
-const Container : object =  {
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "column",
-    justifyContent: "center",
-    height: "100vh"
-}
+import useValidation from "../Hooks/UseValidation";
+import {useRecoilValue, useSetRecoilState} from "recoil";
+import ErrorValidation from "../../state/users/ErrorValidation";
+import UseUrlUsers from "../../state/users/useUrlUsers";
+import useStyles from "../../styles/Style";
 
 const Create = () => {
 
-    const PostCreate = async ( ev: any ) => {
-        const response: any = await Users.PostUsers( ev, 'create' )
-
-        console.log( await response.json() )
-    }
+    const validation: any = useValidation()
+    const setUrlUsers: any = useSetRecoilState(UseUrlUsers)
+    const ErrValidate: Array<boolean> = useRecoilValue( ErrorValidation )
+    const classes: any = useStyles()
 
     return (
-        <Box sx={ Container }>
+        <Box className={ classes.Center }>
             <Grid
                 component="form"
                 maxWidth="400px"
-                onSubmit={ PostCreate }
-                sx={{
-                    '& .MuiTextField-root ,& .MuiButton-root':
-                        { mt: 1, width: '100%', height: 60 },
-                    padding: 2
-                }}
+                onSubmit={ validation }
+                className={ classes.Users }
             >
                 <CardMedia
                     component="img"
@@ -38,6 +29,7 @@ const Create = () => {
                 />
 
                 <TextField
+                    error={ ErrValidate[0] }
                     id="email"
                     name="email"
                     label="Email"
@@ -45,6 +37,7 @@ const Create = () => {
                 />
 
                 <TextField
+                    error={ ErrValidate[1] }
                     id="username"
                     name="username"
                     label="username"
@@ -52,15 +45,21 @@ const Create = () => {
                 />
 
                 <TextField
+                    error={ ErrValidate[2] }
                     id="password"
                     name="password"
                     label="Password"
                     type="password"
                 />
 
-                <Button variant="contained" type="submit">Create account</Button>
+                <Button variant="contained"
+                        type="submit"
+                        onClick={ () => setUrlUsers('validation') }>Create account</Button>
 
-                <a href="/login"><Button variant="text">login</Button></a>
+                <a href="/login">
+                    <Button variant="text">login</Button>
+                </a>
+
             </Grid>
         </Box>
     );
