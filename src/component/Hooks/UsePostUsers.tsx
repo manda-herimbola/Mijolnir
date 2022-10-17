@@ -1,14 +1,14 @@
 import {useNavigate} from "react-router-dom";
 import {useRecoilValue, useSetRecoilState} from "recoil";
 import useInitAuthState from "../../state/users/useInitAuthState";
-import UseUrlUsers from "../../state/users/useUrlUsers";
+import UsePathUsers from "../../state/users/usePathUsers";
 import ErrorValidation from "../../state/users/ErrorValidation";
 
 const usePostUsers = () => {
 
     const navigate: any = useNavigate()
     const setAuth: any = useSetRecoilState(useInitAuthState)
-    const url: string = useRecoilValue(UseUrlUsers)
+    const url: string = useRecoilValue(UsePathUsers)
     const setErrValidate: any = useSetRecoilState(ErrorValidation)
 
     const PostUsers: any = async ( users: UserType ) => {

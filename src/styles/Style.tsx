@@ -21,6 +21,18 @@ const useStyles: any = makeStyles({
         alignItems: "center",
         justifyContent: "space-between",
         width: 115
+    },
+
+    Search: {
+        display : "flex",
+        alignItems : "center",
+        '& .MuiTextField-root': { marginRight : 10 }
+    },
+
+    ToolBarRight: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
     }
 
 })

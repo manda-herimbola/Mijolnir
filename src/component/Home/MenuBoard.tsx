@@ -1,7 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
@@ -12,23 +11,15 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import NavBar from "./navbar/NavBar";
+import NavBarLeft from "./navbar/NavBarLeft";
+import NavBarRight from "./navbar/NavBarRight";
 
 const drawerWidth = 240;
 
 const MenuBoard = ({ users }: any) => {
     return (
         <Box sx={{ display: 'flex' }}>
-            <AppBar
-                position="fixed"
-                sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`, backgroundColor: 'transparent', boxShadow: 'none', color: "#000" }}
-            >
-                <Toolbar>
-                    <Typography variant="h6" noWrap component="div">
-                        { users.username }
-                    </Typography>
-                </Toolbar>
-            </AppBar>
+            <NavBarRight users={ users }/>
 
             <Drawer
                 sx={{
@@ -43,7 +34,7 @@ const MenuBoard = ({ users }: any) => {
                 anchor="left"
             >
 
-                <NavBar />
+                <NavBarLeft />
 
                 <List>
                     {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (

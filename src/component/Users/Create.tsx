@@ -4,13 +4,13 @@ import logo from "../../assets/logo.png";
 import useValidation from "../Hooks/UseValidation";
 import {useRecoilValue, useSetRecoilState} from "recoil";
 import ErrorValidation from "../../state/users/ErrorValidation";
-import UseUrlUsers from "../../state/users/useUrlUsers";
+import UsePathUsers from "../../state/users/usePathUsers";
 import useStyles from "../../styles/Style";
 
 const Create = () => {
 
     const validation: any = useValidation()
-    const setUrlUsers: any = useSetRecoilState(UseUrlUsers)
+    const setUrlUsers: any = useSetRecoilState(UsePathUsers)
     const ErrValidate: Array<boolean> = useRecoilValue( ErrorValidation )
     const classes: any = useStyles()
 
@@ -20,37 +20,33 @@ const Create = () => {
                 component="form"
                 maxWidth="400px"
                 onSubmit={ validation }
-                className={ classes.Users }
-            >
+                className={ classes.Users }>
+
                 <CardMedia
                     component="img"
                     alt="logo"
-                    image={ logo }
-                />
+                    image={ logo }/>
 
                 <TextField
                     error={ ErrValidate[0] }
                     id="email"
                     name="email"
                     label="Email"
-                    type="email"
-                />
+                    type="email"/>
 
                 <TextField
                     error={ ErrValidate[1] }
                     id="username"
                     name="username"
                     label="username"
-                    type="text"
-                />
+                    type="text"/>
 
                 <TextField
                     error={ ErrValidate[2] }
                     id="password"
                     name="password"
                     label="Password"
-                    type="password"
-                />
+                    type="password"/>
 
                 <Button variant="contained"
                         type="submit"

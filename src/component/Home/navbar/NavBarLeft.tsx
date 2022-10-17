@@ -1,11 +1,11 @@
 import React from 'react';
-import {AppBar, CardMedia, IconButton, Typography, Grid, Avatar} from "@mui/material";
+import {IconButton, Typography, Grid, Avatar} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import logo from "../../../assets/logo.png";
 import useStyles from "../../../styles/Style";
 
-const NavBar = () => {
+const NavBarLeft = () => {
 
     const classes: any = useStyles()
 
@@ -14,10 +14,8 @@ const NavBar = () => {
 
             <Grid className={ classes.Logo }>
                 <Avatar
-                    alt="Ted talk"
-                    src={logo}
-                />
-
+                alt="Ted talk"
+                src={logo} />
                 <Typography variant="h6" component="h3">mijolnir</Typography>
             </Grid>
 
@@ -25,13 +23,12 @@ const NavBar = () => {
                 size="large"
                 edge="start"
                 color="inherit"
-                aria-label="menu"
-            >
-                <MenuIcon />
+                aria-label="menu" >
+                <MenuIcon/>
             </IconButton>
 
         </Toolbar>
     );
 };
 
-export default NavBar;
+export default NavBarLeft;

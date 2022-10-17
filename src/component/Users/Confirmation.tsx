@@ -1,16 +1,17 @@
 import React from 'react';
-import { Box, Button, CardMedia, Grid, TextField } from "@mui/material";
-import logo from '../../assets/logo.png';
+import {Box, Button, CardMedia, Grid, TextField} from "@mui/material";
+import logo from "../../assets/logo.png";
 import {useRecoilValue, useSetRecoilState} from "recoil";
 import UsePathUsers from "../../state/users/usePathUsers";
 import useValidation from "../Hooks/UseValidation";
 import ErrorValidation from "../../state/users/ErrorValidation";
 import useStyles from "../../styles/Style";
+import NameAndEmail from "./NameAndEmail";
 
-const Login = () => {
+const Confirmation = () => {
 
     const validation: any = useValidation()
-    const setUrlUsers: any = useSetRecoilState(UsePathUsers)
+    const setPathUsers: any = useSetRecoilState(UsePathUsers)
     const ErrValidate: Array<boolean> = useRecoilValue( ErrorValidation )
     const classes: any = useStyles()
 
@@ -27,31 +28,22 @@ const Login = () => {
                     alt="logo"
                     image={ logo }/>
 
-                <TextField
-                    error={ ErrValidate[0] }
-                    id="email"
-                    name="email"
-                    label="Email"
-                    type="email"/>
+                <NameAndEmail />
 
                 <TextField
-                    error={ ErrValidate[1] }
-                    id="password"
-                    name="password"
-                    label="Password"
+                    error={ ErrValidate[0] }
+                    id="confirmation"
+                    name="confirmation"
+                    label="confirmation"
                     type="password"/>
 
                 <Button variant="contained"
                         type="submit"
-                        onClick={ () => setUrlUsers('login') }>login</Button>
-
-                <a href="/create-account">
-                    <Button variant="text">create account</Button>
-                </a>
+                        onClick={ () => setPathUsers('create') }>Validate</Button>
 
             </Grid>
         </Box>
-    )
+    );
 };
 
-export default Login;
+export default Confirmation;

@@ -3,7 +3,7 @@ import ErrorValidation from "../../state/users/ErrorValidation";
 import CreateUsers from "../../state/users/CreateUsers";
 import { useNavigate } from 'react-router-dom';
 import UsersCreatedNoValidation from "../../state/users/UsersCreatedNoValidation";
-import UseUrlUsers from "../../state/users/useUrlUsers";
+import UsePathUsers from "../../state/users/usePathUsers";
 import usePostUsers from "./UsePostUsers";
 
 const useValidation = () => {
@@ -11,7 +11,7 @@ const useValidation = () => {
     const [ UserCreatedValidate, setUserCreatedValidate ]: any = useRecoilState(UsersCreatedNoValidation)
     const setErrValidate: any = useSetRecoilState(ErrorValidation)
     const setUserCreated: any = useSetRecoilState(CreateUsers)
-    const url: string = useRecoilValue(UseUrlUsers)
+    const pathName: string = useRecoilValue(UsePathUsers)
     const PostUsers = usePostUsers()
     const navigate: any = useNavigate()
 
@@ -33,17 +33,17 @@ const useValidation = () => {
             setErrValidate( validate )
         } else {
 
-            if( url === 'validation' ){
+            if( pathName === 'validation' ){
 
                 setUserCreated( true )
                 setUserCreatedValidate( [ users ] )
                 navigate( '/validation' )
 
-            }else if( url === 'login' ){
+            }else if( pathName === 'login' ){
 
                 PostUsers( users )
 
-            }else if( url === 'create' ){
+            }else if( pathName === 'create' ){
 
                if( UserCreatedValidate[0].password === users.confirmation ) {
                    PostUsers( ...UserCreatedValidate )
