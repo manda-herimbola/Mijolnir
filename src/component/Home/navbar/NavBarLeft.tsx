@@ -1,9 +1,9 @@
 import React from 'react';
-import {IconButton, Typography, Grid, Avatar} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import {Typography, Grid, Avatar} from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import logo from "../../../assets/logo.png";
 import useStyles from "../../../styles/Style";
+import MenuProfils from './MenuProfils';
 
 const NavBarLeft = () => {
 
@@ -16,16 +16,11 @@ const NavBarLeft = () => {
                 <Avatar
                 alt="Ted talk"
                 src={logo} />
+
                 <Typography variant="h6" component="h3">mijolnir</Typography>
             </Grid>
 
-            <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu" >
-                <MenuIcon/>
-            </IconButton>
+            <MenuProfils />
 
         </Toolbar>
     );
