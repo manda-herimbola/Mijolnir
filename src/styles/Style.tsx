@@ -33,8 +33,43 @@ const useStyles: any = makeStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-    }
+    },
 
+    CardList: {
+        marginBottom: 10,
+        border: "1.5px solid rgba(0,0,0,0.1)",
+        borderRadius: 10,
+        padding: 20,
+        backgroundColor: "#FFF",
+        color: "rgba(0,0,0,0.5)",
+
+        '& .MuiTypography-root': {
+            border: "none",
+            margin: 0,
+            padding: 0,
+            background: "transparent",
+            width: "100%",
+            color: "rgba(0,0,0,0.8)",
+            lineHeight: 2,
+            outline: "none"
+        }
+
+    },
+
+    AddCardList: {
+        marginBottom: 10,
+        borderRadius: 10,
+        padding: 20,
+        backgroundColor: "rgba(0,0,0,0.02)",
+        color: "rgba(0,0,0,0.5)",
+        cursor: "pointer"
+    },
+
+    ContainerBoard: {
+        flexGrow: 1,
+        backgroundColor: 'background.default',
+        padding: '0 20px'
+    }
 })
 
 export default useStyles;

@@ -1,13 +1,12 @@
-import React from "react";
+import React, {ReactComponentElement} from "react";
 import {BrowserRouter as Router, Navigate, Route, Routes} from "react-router-dom";
 import NotFound from "../component/NotFound";
-import Home from "../component/Home/Home";
-import Login from "../component/Users/Login";
-import Create from "../component/Users/Create";
 import GetAuth from "../state/users/GetAuth";
-import Confirmation from "../component/Users/Confirmation";
 import CreateUsers from "../state/users/CreateUsers";
 import {useRecoilValue} from "recoil";
+import PathName from "./PathName";
+import Confirmation from "../component/Users/Confirmation";
+import Authentification from "./Authentification";
 
 const AuthGuard = (props: AuthGuardProps) => {
 
@@ -17,14 +16,33 @@ const AuthGuard = (props: AuthGuardProps) => {
     return (
         <Router>
             <Routes>
+
+                {
+                    PathName?.map(({path, component},index) => (
+                        <Route key={index}
+                               path={path}
+                               element={auth ? component : <Navigate to="/login" /> }/>
+                    ))
+                }
+                {
+                    Authentification?.map(({path, component},index) => (
+                        <Route key={index}
+                               path={path}
+                               element={!auth ? component : <Navigate to="/" /> }/>
+                    ))
+                }
                 <Route path='*' element={ <NotFound/> }/>
-                <Route path='/' element={auth ? <Home/> : <Navigate to="/login" /> }/>
-                <Route path='/login' element={!auth ?  <Login/> : <Navigate to="/" /> }/>
-                <Route path='/create-account' element={!auth ?  <Create/> : <Navigate to="/" /> }/>
+                <Route path='/home' element={<Navigate to="/" /> }/>
                 <Route path='/validation' element={ validate ? <Confirmation/> : <Navigate to="/create-account" /> }/>
+
             </Routes>
         </Router>
     )
+}
+
+export type PathNameType = {
+    path: string,
+    component: ReactComponentElement<any>
 }
 
 export type AuthGuardProps = {
