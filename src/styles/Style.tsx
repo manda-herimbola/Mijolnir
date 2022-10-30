@@ -69,6 +69,27 @@ const useStyles: any = makeStyles({
         flexGrow: 1,
         backgroundColor: 'background.default',
         padding: '0 20px'
+    },
+
+    ContainerProfile: {
+        flexGrow: 1,
+        backgroundColor: 'background.default',
+        padding: '20px',
+        height: `calc(100vh - 40px)`,
+        display: 'flex',
+        justifyContent: "center",
+        alignItems: 'center',
+        flexDirection: "column"
+    },
+
+    ProfilePictures: {
+        borderRadius: '100%',
+        overflow: "hidden",
+        width: 200,
+        height: 200,
+        boxShadow: '1px 1px 10px 2px rgba(0,0,0,0.3)',
+        cursor: "pointer",
+        margin: 10
     }
 })
 
