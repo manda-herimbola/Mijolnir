@@ -4,6 +4,7 @@ import DrawerLeft from "../DrawerLeft/DrawerLeft";
 import useStyles from "../../styles/Style";
 import ProfilePictures from "./ProfilePictures";
 import UsernameProfiles from "./UsernameProfiles";
+import EmailProfiles from "./EmailProfiles";
 
 const Profile = () => {
 
@@ -15,10 +16,9 @@ const Profile = () => {
             <DrawerLeft />
 
             <Box component="main" className={ classes.ContainerProfile }>
-
                 <ProfilePictures />
                 <UsernameProfiles />
-
+                <EmailProfiles />
             </Box>
 
         </Box>

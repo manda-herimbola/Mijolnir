@@ -4,15 +4,15 @@ import {usersType} from "../Home/Home";
 import {useRecoilValue} from "recoil";
 import ProfileName from "../../state/Name/ProfileName";
 
-const UsernameProfiles = () => {
+const EmailProfiles = () => {
 
     const users: usersType = useRecoilValue(ProfileName)
 
     return (
-        <Typography variant='h4' component='h2' sx={{ mb:1 }}>
-            { users.username }
+        <Typography variant='body2' component='p'>
+            { users.email }
         </Typography>
     );
 };
 
-export default UsernameProfiles;
+export default EmailProfiles;
