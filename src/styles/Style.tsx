@@ -88,8 +88,14 @@ const useStyles: any = makeStyles({
         width: 200,
         height: 200,
         boxShadow: '1px 1px 10px 2px rgba(0,0,0,0.3)',
-        cursor: "pointer",
-        margin: 10
+        cursor: "pointer"
+    },
+
+    ButtonProfile: {
+        justifyContent: 'center',
+        marginTop: 20,
+        '& .MuiButton-root':
+            { margin: 5 },
     }
 })
 

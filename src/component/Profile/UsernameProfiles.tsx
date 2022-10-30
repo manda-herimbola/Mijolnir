@@ -9,7 +9,7 @@ const UsernameProfiles = () => {
     const users: usersType = useRecoilValue(ProfileName)
 
     return (
-        <Typography variant='h4' component='h2' sx={{ mb:1 }}>
+        <Typography variant='h4' component='h2' sx={{ mb:1, mt:2 }}>
             { users.username }
         </Typography>
     );

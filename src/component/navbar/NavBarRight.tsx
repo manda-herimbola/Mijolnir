@@ -25,13 +25,11 @@ const AppBarRight: object = {
     color: "#000",
     flexGrow: 1
 }
-
 const SmartPhoneStyle = {
     display: { xs: 'flex', md: 'flex' },
     width: {xs: '100%', md: 'auto'},
     justifyContent: 'space-between'
 }
-
 const responsive: object = { xs: 'none', md: 'flex' }
 
 const PrimarySearchAppBar = () => {
@@ -40,9 +38,8 @@ const PrimarySearchAppBar = () => {
 
     return (
         <Box>
-            <AppBar sx={ AppBarRight } >
+            <AppBar sx={ AppBarRight }>
                 <Toolbar>
-
                     <Typography variant="h6"
                                 component="h2"
                                 noWrap
@@ -60,7 +57,6 @@ const PrimarySearchAppBar = () => {
 
                         <Avatar alt="Ted talk" src={sary} sx={{ ml: 2 }}/>
                     </Box>
-
                 </Toolbar>
             </AppBar>
         </Box>

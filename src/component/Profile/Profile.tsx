@@ -5,22 +5,21 @@ import useStyles from "../../styles/Style";
 import ProfilePictures from "./ProfilePictures";
 import UsernameProfiles from "./UsernameProfiles";
 import EmailProfiles from "./EmailProfiles";
+import TableOfProfile from "./TableOfProfile";
 
 const Profile = () => {
-
     const classes: any = useStyles()
 
     return (
         <Box sx={{ display: 'flex' }}>
-
             <DrawerLeft />
 
             <Box component="main" className={ classes.ContainerProfile }>
                 <ProfilePictures />
                 <UsernameProfiles />
                 <EmailProfiles />
+                <TableOfProfile />
             </Box>
-
         </Box>
     );
 };
