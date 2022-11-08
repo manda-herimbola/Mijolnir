@@ -96,6 +96,14 @@ const useStyles: any = makeStyles({
         marginTop: 20,
         '& .MuiButton-root':
             { margin: 5 },
+    },
+
+    ContainerMyTasks: {
+        flexGrow: 1,
+        backgroundColor: 'background.default',
+        marginTop: "40px",
+        padding: '25px',
+        height: `calc(100vh - 100px)`
     }
 })
 

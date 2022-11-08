@@ -10,7 +10,7 @@ const TaskOption = () => {
         <Grid container sx={{ justifyContent: "space-between", alignItems: "center" }}>
             <Avatar alt="Remy Sharp"
                     src={ photo }
-                    sx={{ width: 25, height: 25 }}/>
+                    sx={{ width: 22, height: 22 }}/>
 
             <Grid>
                 <IconButton size="small"
