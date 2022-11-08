@@ -5,7 +5,7 @@ import TaskBar from "./TaskBar";
 
 const TaskList = () => {
 
-    const taskProject: Array<string> = ['Archive', 'Alarm', 'Job', 'Untitled section']!
+    const taskProject: Array<string> = ['Archive', 'Alarm', 'Job', 'Finished']!
 
     return (
         <Grid container

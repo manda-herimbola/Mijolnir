@@ -3,10 +3,12 @@ import MoreHorizTwoToneIcon from "@mui/icons-material/MoreHorizTwoTone";
 import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import {useNavigate} from "react-router-dom";
 
-const MoreIconTaskList = () => {
+const MoreIconTaskList = ({ number, job }: any) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
+    const navigate: any = useNavigate()
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -32,7 +34,7 @@ const MoreIconTaskList = () => {
                   onClose={handleClose}
                   MenuListProps={{'aria-labelledby': 'basic-button'}}>
 
-                <MenuItem >Open</MenuItem>
+                <MenuItem onClick={ () => navigate(`/${ job }`) }>Open</MenuItem>
                 <MenuItem >Delete All</MenuItem>
                 <MenuItem >Collaborate</MenuItem>
             </Menu>

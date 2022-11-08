@@ -14,7 +14,7 @@ const TaskBar = ({ number, job }: any) => {
             <Box sx={{ flexGrow: 1 }} />
 
             <AddTaskButton index={number}/>
-            <MoreIconTaskList />
+            <MoreIconTaskList number={number} job={job}/>
         </Grid>
     );
 };

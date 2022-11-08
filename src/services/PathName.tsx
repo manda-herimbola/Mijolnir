@@ -6,6 +6,7 @@ import PortFolio from "../component/Portfolio/PortFolio";
 import Goals from "../component/Goals/Goals";
 import React from "react";
 import {PathNameType} from "./AuthGuard";
+import Open from "../component/Home/TaskList/MoreIcone/Open";
 
 const PathName: Array<PathNameType> = [
     {
@@ -26,7 +27,19 @@ const PathName: Array<PathNameType> = [
     },{
         path: 'goals',
         component: <Goals/>
-    },
+    },{
+        path: 'Archive',
+        component: <Open/>
+    },{
+        path: 'Alarm',
+        component: <Open/>
+    },{
+        path: 'job',
+        component: <MyTask/>
+    },{
+        path: 'Finished',
+        component: <Open/>
+    }
 ]
 
 export default PathName;
