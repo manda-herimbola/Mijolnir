@@ -2,7 +2,7 @@ import React from 'react';
 import {Grid, Typography} from "@mui/material";
 import Box from "@mui/material/Box";
 import AddTaskButton from "./AddTaskButton";
-import MoreIconTaskList from "./MoreIconTaskList";
+import MoreIconTaskList from "./MoreIcone/MoreIconTaskList";
 
 const TaskBar = ({ number, job }: any) => {
 
