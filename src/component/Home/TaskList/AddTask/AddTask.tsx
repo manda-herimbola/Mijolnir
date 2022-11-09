@@ -1,15 +1,15 @@
 import {useRecoilState} from "recoil";
-import Archive from "../../../state/TaskList/Archive";
-import Alarm from "../../../state/TaskList/Alarm";
-import Job from "../../../state/TaskList/Job";
-import Untitled from "../../../state/TaskList/Untitled";
+import Archive from "../../../../state/TaskList/Archive";
+import Alarm from "../../../../state/TaskList/Alarm";
+import Job from "../../../../state/TaskList/Job";
+import Finished from "../../../../state/TaskList/Finished";
 
 const AddTask = ( index: number ) => {
 
     const [archive, setArchive]: any = useRecoilState(Archive)
     const [alarm, setAlarm]: any = useRecoilState(Alarm)
     const [job, setJob]: any = useRecoilState(Job)
-    const [untitled, setUntitled]: any = useRecoilState(Untitled)
+    const [untitled, setUntitled]: any = useRecoilState(Finished)
 
     const AddTaskJob: any = () => {
 

@@ -4,11 +4,14 @@ import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import {useNavigate} from "react-router-dom";
+import {useSetRecoilState} from "recoil";
+import OpenTheTools from "../../../../state/TaskList/OpenTheTools";
 
 const MoreIconTaskList = ({ number, job }: any) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const navigate: any = useNavigate()
+    const setTheTools: any = useSetRecoilState(OpenTheTools)
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -17,6 +20,11 @@ const MoreIconTaskList = ({ number, job }: any) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const OpenTheTool = () => {
+        setTheTools( job )
+        navigate(`/${ job }`)
+    }
 
     return (
         <div>
@@ -34,7 +42,7 @@ const MoreIconTaskList = ({ number, job }: any) => {
                   onClose={handleClose}
                   MenuListProps={{'aria-labelledby': 'basic-button'}}>
 
-                <MenuItem onClick={ () => navigate(`/${ job }`) }>Open</MenuItem>
+                <MenuItem onClick={ OpenTheTool }>Open</MenuItem>
                 <MenuItem >Delete All</MenuItem>
                 <MenuItem >Collaborate</MenuItem>
             </Menu>

@@ -68,7 +68,7 @@ const useStyles: any = makeStyles({
     ContainerBoard: {
         flexGrow: 1,
         backgroundColor: 'background.default',
-        padding: '0 20px'
+        padding: '0 25px'
     },
 
     ContainerProfile: {

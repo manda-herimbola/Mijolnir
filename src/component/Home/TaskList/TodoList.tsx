@@ -6,8 +6,8 @@ import {useRecoilValue} from "recoil";
 import Archive from "../../../state/TaskList/Archive";
 import Alarm from "../../../state/TaskList/Alarm";
 import Jobs from "../../../state/TaskList/Job";
-import Untitled from "../../../state/TaskList/Untitled";
-import AddTask from "./AddTask";
+import Finished from "../../../state/TaskList/Finished";
+import AddTask from "./AddTask/AddTask";
 import TaskInput from "./TaskInput";
 
 const TodoList = ({ index }: any) => {
@@ -17,7 +17,7 @@ const TodoList = ({ index }: any) => {
     const archive: ArchiveType = useRecoilValue(Archive)
     const alarm: ArchiveType = useRecoilValue(Alarm)
     const jobs: ArchiveType = useRecoilValue(Jobs)
-    const untitled: ArchiveType = useRecoilValue(Untitled)
+    const untitled: ArchiveType = useRecoilValue(Finished)
 
     const jobIndex: Array<ArchiveType> = [ archive, alarm, jobs, untitled ]
 
