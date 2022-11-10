@@ -1,18 +1,14 @@
 import React from 'react';
-import {Box, Grid, Typography} from "@mui/material";
-import useStyles from "../../../styles/Style";
-import AddCircleOutlineTwoToneIcon from '@mui/icons-material/AddCircleOutlineTwoTone';
+import {Box} from "@mui/material";
 import {useRecoilValue} from "recoil";
 import Archive from "../../../state/TaskList/Archive";
 import Alarm from "../../../state/TaskList/Alarm";
 import Jobs from "../../../state/TaskList/Job";
 import Finished from "../../../state/TaskList/Finished";
-import AddTask from "./AddTask/AddTask";
 import TaskInput from "./TaskInput";
+import AddTaskSizing from "./AddTask/AddTaskSizing";
 
 const TodoList = ({ index }: any) => {
-
-    const classes: any = useStyles()
 
     const archive: ArchiveType = useRecoilValue(Archive)
     const alarm: ArchiveType = useRecoilValue(Alarm)
@@ -23,7 +19,6 @@ const TodoList = ({ index }: any) => {
 
     return (
         <Box sx={{ m: "15px 0" }}>
-
             {
                 jobIndex[index].task.map(({title, description}, index) => (
                     index !== 0 ?
@@ -37,13 +32,7 @@ const TodoList = ({ index }: any) => {
                 ))
             }
 
-            <Grid className={ classes.AddCardList } onClick={ AddTask(index) }>
-                <Grid container>
-                    <AddCircleOutlineTwoToneIcon sx={{ mr: 2 }}/>
-                    <Typography variant="body1" component="p">Add task</Typography>
-                </Grid>
-            </Grid>
-
+            <AddTaskSizing index={ index }/>
         </Box>
     );
 };
