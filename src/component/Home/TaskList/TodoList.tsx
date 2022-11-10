@@ -39,7 +39,7 @@ const TodoList = ({ index }: any) => {
 
             <Grid className={ classes.AddCardList } onClick={ AddTask(index) }>
                 <Grid container>
-                    <AddCircleOutlineTwoToneIcon sx={{ mr: 2 }}/>
+                    <AddCircleOutlineTwoToneIcon sx={{ mr: 1 }}/>
                     <Typography variant="body1" component="p">Add task</Typography>
                 </Grid>
             </Grid>
