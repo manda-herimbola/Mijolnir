@@ -4,7 +4,7 @@ import useStyles from "../../../../styles/Style";
 import TaskOption from "./TaskOption";
 import useSaveTask from "../../../Hooks/UseSaveTask";
 
-const SaveTaskInput = ({ index, service, title, description }: any) => {
+const TaskInput = ({ index, service, title, description }: any) => {
 
     const classes: any = useStyles()
     const [ {til,num}, setTil ]: any = useState({ til: {}, num: 0 })
@@ -47,4 +47,4 @@ const SaveTaskInput = ({ index, service, title, description }: any) => {
     );
 };
 
-export default SaveTaskInput;
+export default TaskInput;

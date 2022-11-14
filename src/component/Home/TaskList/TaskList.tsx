@@ -5,7 +5,7 @@ import Archive from "../../../state/TaskList/Archive";
 import Alarm from "../../../state/TaskList/Alarm";
 import Job from "../../../state/TaskList/Job";
 import Finished from "../../../state/TaskList/Finished";
-import SaveTaskInput from "./TaskInput/SaveTaskInput";
+import TaskInput from "./TaskInput/TaskInput";
 import AddTaskButtonSizing from "./AddTask/AddTaskButtonSizing";
 
 const TaskList = ({ index, service }: any) => {
@@ -23,10 +23,10 @@ const TaskList = ({ index, service }: any) => {
             {
                 serviceIndex[index].task.map(({title, description}, number: number) => (
                     number !== 0 ? <div key={number}>
-                        <SaveTaskInput index={number}
-                                       service={service}
-                                       title={title}
-                                       description={description}/></div> : <div key={number}> </div>
+                        <TaskInput index={number}
+                                   service={service}
+                                   title={title}
+                                   description={description}/></div> : <div key={number}> </div>
                 ))
             }
 
