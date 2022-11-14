@@ -2,52 +2,20 @@ import React, {useState} from 'react';
 import {Button, Grid, TextField} from "@mui/material";
 import useStyles from "../../../../styles/Style";
 import TaskOption from "./TaskOption";
-import {useRecoilValue} from "recoil";
-import ProfileName from "../../../../state/Name/ProfileName";
+import useSaveTask from "../../../Hooks/UseSaveTask";
 
 const SaveTaskInput = ({ index, service, title, description }: any) => {
 
     const classes: any = useStyles()
-    const profile: any = useRecoilValue(ProfileName)
-
-    const [ til, setTil ]: any = useState({})
-    const [ num, setNum ]: any = useState(0)
+    const [ {til,num}, setTil ]: any = useState({ til: {}, num: 0 })
+    const [ errorTask, setErrorTask ]: any = useState('')
 
     const titleValue: Array<any> = [ title, til.title ]
     const descValue: Array<any> = [ description, til.description ]
     const titleDefaultVal: Array<string> = [ 'Title', 'undefined' ]
     const descDefaultVal: Array<string> = [ 'Description', 'undefined' ]
 
-    const taskUrl: string = 'http://localhost:5000/tasks/'
-    const [ errorTask, setErrorTask ]: any = useState('')
-
-    const SaveTask: any = async (ev: SubmitEvent) => {
-        ev.preventDefault()
-
-        const form = ev.target as HTMLFormElement
-        const formData = new FormData( form )
-        const data: any = Object.fromEntries( formData.entries() )
-
-        const task: Object = { nb: index, work: service, ...profile, ...data }
-
-        if( data.title !== '' && data.description !== '' ){
-
-            try {
-
-                const response: any = await fetch( taskUrl,{
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(task)
-                })
-
-                setTil( (await response.json()).newDataBase )
-                setNum( 1 )
-
-            }catch (err){ console.log(err) }
-
-        }else { setErrorTask('Task is empty') }
-
-    }
+    const SaveTask: any = useSaveTask( index, service, setTil, setErrorTask )
 
     return (
         <Grid component="form"
