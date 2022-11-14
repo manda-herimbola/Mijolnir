@@ -4,7 +4,7 @@ const Archive: any = atom({
     key: 'State.Archives',
     default: {
         task: [{title: "", description: ""}],
-        archive: false
+        job: false
     }
 })
 

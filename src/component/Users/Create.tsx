@@ -16,37 +16,32 @@ const Create = () => {
 
     return (
         <Box className={ classes.Center }>
-            <Grid
-                component="form"
-                maxWidth="400px"
-                onSubmit={ validation }
-                className={ classes.Users }>
+            <Grid component="form"
+                  maxWidth="400px"
+                  onSubmit={ validation }
+                  className={ classes.Users }>
 
-                <CardMedia
-                    component="img"
-                    alt="logo"
-                    image={ logo }/>
+                <CardMedia component="img"
+                           alt="logo"
+                           image={ logo }/>
 
-                <TextField
-                    error={ ErrValidate[0] }
-                    id="email"
-                    name="email"
-                    label="Email"
-                    type="email"/>
+                <TextField error={ ErrValidate[0] }
+                           id="email"
+                           name="email"
+                           label="Email"
+                           type="email"/>
 
-                <TextField
-                    error={ ErrValidate[1] }
-                    id="username"
-                    name="username"
-                    label="username"
-                    type="text"/>
+                <TextField error={ ErrValidate[1] }
+                           id="username"
+                           name="username"
+                           label="username"
+                           type="text"/>
 
-                <TextField
-                    error={ ErrValidate[2] }
-                    id="password"
-                    name="password"
-                    label="Password"
-                    type="password"/>
+                <TextField error={ ErrValidate[2] }
+                           id="password"
+                           name="password"
+                           label="Password"
+                           type="password"/>
 
                 <Button variant="contained"
                         type="submit"

@@ -1,28 +1,56 @@
 import React from 'react';
-import {Grid} from "@mui/material";
-import TodoList from "./TodoList";
-import TaskBar from "./TaskBar";
+import {Box} from "@mui/material";
+import {useRecoilValue} from "recoil";
+import Archive from "../../../state/TaskList/Archive";
+import Alarm from "../../../state/TaskList/Alarm";
+import Job from "../../../state/TaskList/Job";
+import Finished from "../../../state/TaskList/Finished";
+import SaveTaskInput from "./TaskInput/SaveTaskInput";
+import AddTaskButtonSizing from "./AddTask/AddTaskButtonSizing";
 
-const TaskList = () => {
+const TaskList = ({ index, service }: any) => {
 
-    const taskProject: Array<string> = ['Archive', 'Alarm', 'Job', 'Finished']!
+    const archive: ArchiveType = useRecoilValue(Archive)
+    const alarm: ArchiveType = useRecoilValue(Alarm)
+    const job: ArchiveType = useRecoilValue(Job)
+    const finished: ArchiveType = useRecoilValue(Finished)
+
+    const serviceIndex: Array<ArchiveType> = [ archive, alarm, job, finished ]
 
     return (
-        <Grid container
-              columns={{ xs: 1, md: 2, lg: 4 }}
-              spacing={3}>
+        <Box sx={{ m: "15px 0" }}>
 
             {
-                taskProject.map((job,number ) =>
-
-                <Grid key={ number } item xs={1} md={1} lg={1}>
-                    <TaskBar number={number} job={job}/>
-                    <TodoList index={ number }/>
-                </Grid>)
+                serviceIndex[index].task.map(({title, description}, number: number) => (
+                    number !== 0 ? <div key={number}>
+                        <SaveTaskInput index={number}
+                                       service={service}
+                                       title={title}
+                                       description={description}/></div> : <div key={number}> </div>
+                ))
             }
 
-        </Grid>
+            <AddTaskButtonSizing index={ index } service={ service }/>
+
+        </Box>
     );
 };
 
+export type taskType = {
+    id: any,
+    nb: number,
+    work: string,
+    username: string,
+    email: string
+    title: string,
+    description: string
+}
+
+export type ArchiveType = {
+    task: Array<taskType>
+    archive?: boolean
+    alarm?: boolean
+    job?: boolean
+    untitled?: boolean
+}
 export default TaskList;
