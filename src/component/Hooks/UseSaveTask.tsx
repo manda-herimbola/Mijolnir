@@ -14,8 +14,10 @@ const useSaveTask = ( index: number, service: string, setTil: any, setErrorTask:
         const data: any = Object.fromEntries( formData.entries() )
 
         const task: Object = { nb: index, work: service, ...profile, ...data }
+        const dataVide: any = data.title !== '' && data.description !== ''
+        const dataBoucle: any = data.title !== 'Title' && data.description !== 'Description'
 
-        if( data.title !== '' && data.description !== '' ){
+        if( dataVide && dataBoucle ){
 
             try {
 

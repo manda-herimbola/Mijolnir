@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Grid, TextField} from "@mui/material";
+import {Button, Grid, TextField, Typography} from "@mui/material";
 import useStyles from "../../../../styles/Style";
 import TaskOption from "./TaskOption";
 import useSaveTask from "../../../Hooks/UseSaveTask";
@@ -25,12 +25,20 @@ const TaskInput = ({ index, service, title, description }: any) => {
 
             <p color="red">{ errorTask }</p>
 
-            { titleValue[num] !== titleDefaultVal[num] ? <p>{ titleValue[num] }</p> :
+            { titleValue[num] !== titleDefaultVal[num] ?
+                <Typography variant="h6"
+                            component="h3"
+                            noWrap>{ titleValue[num] }</Typography> :
+
                 <TextField variant="standard"
                            name="title"
                            placeholder="Title"/>}
 
-            { descValue[num] !== descDefaultVal[num] ? <p>{ descValue[num] }</p> :
+            { descValue[num] !== descDefaultVal[num] ?
+                <Typography variant="body2"
+                            component="p"
+                            noWrap>{ descValue[num] }</Typography> :
+
                 <TextField variant="standard"
                            name="description"
                            placeholder="Description"
