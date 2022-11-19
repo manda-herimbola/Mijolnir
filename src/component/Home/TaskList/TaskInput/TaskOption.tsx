@@ -3,7 +3,7 @@ import {Avatar, Grid} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from "@mui/material/IconButton";
 import AddBoxIcon from '@mui/icons-material/AddBox';
-import photo from '../../../assets/manda.jpg'
+import photo from '../../../../assets/manda.jpg'
 
 const TaskOption = () => {
     return (

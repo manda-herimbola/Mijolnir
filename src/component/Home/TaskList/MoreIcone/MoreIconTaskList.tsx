@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom";
 import {useSetRecoilState} from "recoil";
 import OpenTheTools from "../../../../state/TaskList/OpenTheTools";
 
-const MoreIconTaskList = ({ number, job }: any) => {
+const MoreIconTaskList = ({ number, service }: any) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const navigate: any = useNavigate()
@@ -22,8 +22,8 @@ const MoreIconTaskList = ({ number, job }: any) => {
     };
 
     const OpenTheTool = () => {
-        setTheTools( job )
-        navigate(`/${ job }`)
+        setTheTools( service )
+        navigate(`/${ service }`)
     }
 
     return (

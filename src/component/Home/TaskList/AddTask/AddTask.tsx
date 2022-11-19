@@ -1,40 +1,37 @@
-import {useRecoilState} from "recoil";
+import {useRecoilState, useRecoilValue} from "recoil";
 import Archive from "../../../../state/TaskList/Archive";
 import Alarm from "../../../../state/TaskList/Alarm";
 import Job from "../../../../state/TaskList/Job";
 import Finished from "../../../../state/TaskList/Finished";
+import ProfileName from "../../../../state/Name/ProfileName";
 
-const AddTask = ( index: number ) => {
+const AddTask = ( index: number, service: string ) => {
 
     const [archive, setArchive]: any = useRecoilState(Archive)
     const [alarm, setAlarm]: any = useRecoilState(Alarm)
     const [job, setJob]: any = useRecoilState(Job)
-    const [untitled, setUntitled]: any = useRecoilState(Finished)
+    const [finished, setFinished]: any = useRecoilState(Finished)
+    const profile: any = useRecoilValue(ProfileName)
+    const services: Array<any> = [ archive, alarm, job, finished ]
 
     const AddTaskJob: any = () => {
 
-        const task: Object = { title: "Title", description: "Description" }
+        const task: Object = {
+            nb: services[index].task.length,
+            work: service,
+            ...profile,
+            title: "Title",
+            description: "Description"
+        }
 
         if( index === 0 ){
-            setArchive({
-                task: [...archive.task, task],
-                archive: true
-            })
+            setArchive({ task: [...archive.task, task], archive: true })
         }else if( index === 1 ){
-            setAlarm({
-                task: [...alarm.task, task],
-                alarm: true
-            })
+            setAlarm({ task: [...alarm.task, task], alarm: true })
         }else if( index === 2 ){
-            setJob({
-                task: [...job.task, task],
-                job: true
-            })
+            setJob({ task: [...job.task, task], job: true })
         }else if( index === 3 ){
-            setUntitled({
-                task: [...untitled.task, task],
-                untitled: true
-            })
+            setFinished({ task: [...finished.task, task], finished: true })
         }
 
     }

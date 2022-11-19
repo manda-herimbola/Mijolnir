@@ -1,11 +1,11 @@
 import {atom} from "recoil";
 
-const Job: any = atom({
-    key: 'State.Job',
+const Works: any = atom({
+    key: 'State.Works',
     default: {
         task: [{title: "", description: ""}],
         job: false
     }
 })
 
-export default Job;
+export default Works;

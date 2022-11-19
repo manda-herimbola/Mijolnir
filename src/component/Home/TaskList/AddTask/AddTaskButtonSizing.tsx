@@ -4,12 +4,12 @@ import AddCircleOutlineTwoToneIcon from "@mui/icons-material/AddCircleOutlineTwo
 import useStyles from "../../../../styles/Style";
 import AddTask from "./AddTask";
 
-const AddTaskSizing = ({ index }: any) => {
+const AddTaskButtonSizing = ({ index, service }: any) => {
 
     const classes: any = useStyles()
 
     return (
-        <Box className={ classes.AddCardList } onClick={ AddTask(index) }>
+        <Box className={ classes.AddCardList } onClick={ AddTask(index, service) }>
             <Grid container>
                 <AddCircleOutlineTwoToneIcon sx={{ mr: 1 }}/>
                 <Typography variant="body1" component="p">Add task</Typography>
@@ -18,4 +18,4 @@ const AddTaskSizing = ({ index }: any) => {
     );
 };
 
-export default AddTaskSizing;
+export default AddTaskButtonSizing;
